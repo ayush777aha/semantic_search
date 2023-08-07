@@ -90,3 +90,7 @@ async function do_semantic_search(keyword) {
   }
 }
 
+
+module.exports ={
+  do_semantic_search
+}

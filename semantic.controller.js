@@ -1,5 +1,6 @@
 const path = require('path');
 const {ocrImage} = require('./semntic.service')
+const {do_semantic_search} =require('./utility')
 const fs = require('fs')
 
 
@@ -27,6 +28,7 @@ exports.searchKeyword = async (req, res) => {
     files.forEach((file) => {
         const content = fs.readFileSync(`outputs/${file}.txt`, 'utf-8').toLowerCase();
         if (content.includes(searchText)) {
+            do_semantic_search(file)
             matchingFiles.push(file);
         }
     });
